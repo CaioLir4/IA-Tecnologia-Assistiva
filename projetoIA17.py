@@ -1,13 +1,5 @@
+
 '''
-Projeto de iniciação científica
-Título: Inteligência Artificial:Transformando a Oralização de Palavras em Braille e Matemática - Uma Ferramenta para Inclusão e Operações Matemáticas na Educação de Pessoas com Deficiência Visual
-
-Curso: Ciência da Computação 
-Aluno: José Roberto Vasconcellos Lopes - 20203071971
-Professor: Paulo Tássio
-Coordenador: Iranildo Encarnação 
-===================================================================
-
 Instalar as bibliotecas
 pip install SpeechRecognition Pillow
 pip install reportlab
@@ -88,7 +80,7 @@ def processar_fala():
             pdf.setFont("Helvetica-Bold", 12)
             pdf.drawString(50, y, 'Professor: Paulo Tássio')
             y -= 20
-            pdf.drawString(50, y, f'Aluno: José Roberto Vasconcellos Lopes - 20203071971')
+            pdf.drawString(50, y, f'Alunos: CAIO GOMES LIRA : 202202887064')
             y -= 20'''
 
             # Reconhece a fala e converte em texto
@@ -111,11 +103,10 @@ def processar_fala():
             # Salva o relatório de texto
             with open('relatorio.txt', 'w', encoding='utf-8') as relatorio:
                 relatorio.write('Projeto de iniciação científica \n')
-                relatorio.write('Título: Inteligência Artificial:Transformando a Oralização de Palavras em Braille e Matemática - Uma Ferramenta para Inclusão e Operações Matemáticas na Educação de Pessoas com Deficiência Visual \n\n')
+                relatorio.write('Título: Inteligência Artificial:Conversão de audio em Braili. Contribuindo com Educação de Pessoas com Deficiência Visual \n\n')
                 relatorio.write('Curso: Ciência da Computação \n')
-                relatorio.write('Aluno: José Roberto Vasconcellos Lopes - 20203071971\n')
+                relatorio.write('Aluno: CAIO GOMES LIRA : 202202887064\n')
                 relatorio.write('Professor: Paulo Tássio \n')
-                relatorio.write('Coordenador: Iranildo Encarnação  \n')
                 relatorio.write('=================================================================== \n\n')
                 relatorio.write('Texto reconhecido: \n')
                 relatorio.write(text + '\n\n')
@@ -133,10 +124,10 @@ def processar_fala():
                 relatorio.write('<body>')
                 relatorio.write('<img src="faci.png" alt="Faci Wyden" style="width:200px; height:200px;" class="imagem-lado"><h2>Faculdade Faci Wyden</h2>')
                 relatorio.write('<h3>Curso: Ciência da Computação</h3>')
-                relatorio.write('<h3>Aluno: José Roberto Vasconcellos Lopes - 20203071971</h3>')
+                relatorio.write('<h3>Aluno: CAIO GOMES LIRA : 202202887064</h3>')
                 relatorio.write('<h3>Professor: Paulo Tássio</h3>')
                 relatorio.write('<h3>Coordenador: Iranildo Encarnação</h2>')
-                relatorio.write('<h2>Título: Inteligência Artificial:Transformando a Oralização de Palavras em Braille e Matemática - Uma Ferramenta para Inclusão e Operações Matemáticas na Educação de Pessoas com Deficiência Visual</h2>\n')
+                relatorio.write('<h2>Título: Inteligência Artificial:Conversão de audio em Braili. Contribuindo com Educação de Pessoas com Deficiência Visual</h2>\n')
                 relatorio.write('<hr>')
                 relatorio.write(f'<h3>Texto reconecido: {text}</h3>')
                 relatorio.write(f'<h3>Texto em Braille: {braille_text}</h3>')
