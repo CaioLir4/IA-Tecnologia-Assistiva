@@ -1,0 +1,754 @@
+const int botaoPin = 2; 
+int LedA1 = 13; 
+int LedA2 = 12;
+int LedA3 = 11;
+int LedB1 = 10; 
+int LedB2 = 9;
+int LedB3 = 8;
+
+int LedA4 = 7; 
+int LedA5 = 6;
+int LedA6 = 5;
+int LedB4 = 4;
+int LedB5 = A0;
+int LedB6 = A1;
+
+int funcaoAtual = 1;
+
+
+
+int delayInputs = 1000;
+void setup() {
+  Serial.begin(9600);
+  pinMode(botaoPin, INPUT_PULLUP); 
+  pinMode(LedA1, OUTPUT);
+  pinMode(LedA2, OUTPUT);
+  pinMode(LedA3, OUTPUT);
+  pinMode(LedB1, OUTPUT);
+  pinMode(LedB2, OUTPUT);
+  pinMode(LedB3, OUTPUT);
+  
+  pinMode(LedA4, OUTPUT);
+  pinMode(LedA5, OUTPUT);
+  pinMode(LedA6, OUTPUT);
+  pinMode(LedB4, OUTPUT);
+  pinMode(LedB5, OUTPUT);
+  pinMode(LedB6, OUTPUT);
+  
+ 
+}
+
+void loop() {
+  if (digitalRead(botaoPin) == LOW) {
+    char letra = lerLetra();
+    
+    if (letra == ' '){
+    	
+      funcaoAtual = 1;
+      
+    }
+
+    switch (funcaoAtual) {
+      case 1:
+        identificarLetra(letra);
+        break;
+
+      case 2:
+        identificarLetra2(letra);
+        break;
+
+
+      default:
+        Serial.println("Função desconhecida.");
+    }
+    
+    funcaoAtual++;
+    if (funcaoAtual > 2) {
+      funcaoAtual = 1;  
+    }
+
+    delay(200); 
+  }
+}
+char lerLetra() {
+  Serial.println("Digite palavras: ");
+  while (!Serial.available()); 
+  return Serial.read(); 
+}
+
+void identificarLetra2(char letra) {
+
+  switch (letra) {
+    
+    case 'a':
+    case 'A':
+      Serial.println("A reconhecido");
+      digitalWrite(LedA4, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA4, LOW);
+      break;
+
+    case 'b':
+    case 'B':
+      Serial.println("B reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      break;
+
+    case 'c':
+    case 'C':
+      Serial.println("C reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedB6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 'd':
+    case 'D':
+      Serial.println("D reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedB6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'e':
+    case 'E':
+      Serial.println("E reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'f':
+    case 'F':
+      Serial.println("F reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedB6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 'g':
+    case 'G':
+      Serial.println("G reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedB6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'h':
+    case 'H':
+      Serial.println("H reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'i':
+    case 'I':
+      Serial.println("I reconhecido");
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedB6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 'j':
+    case 'J':
+      Serial.println("J reconhecido");
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedB6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'k':
+    case 'K':
+      Serial.println("K reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA4, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      break;
+
+    case 'l':
+    case 'L':
+      Serial.println("L reconhecido");
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedA6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA6, LOW);
+      break;
+
+    case 'm':
+    case 'M':
+      Serial.println("M reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedB6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 'n':
+    case 'N':
+      Serial.println("N reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedB6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'o':
+    case 'O':
+      Serial.println("O reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'p':
+    case 'P':
+      Serial.println("P reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedB6, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 'q':
+    case 'Q':
+      Serial.println("Q reconhecido");
+      digitalWrite(LedA6, HIGH);
+      digitalWrite(LedA5, HIGH);
+      digitalWrite(LedA4, HIGH);
+      digitalWrite(LedB6, HIGH);
+      digitalWrite(LedB5, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'r':
+    case 'R':
+      Serial.println("R reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+
+    case 's':
+    case 'S':
+      Serial.println("S reconhecido");
+      digitalWrite(LedA5, HIGH); // Modificado para LedA5
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB6, HIGH); // Modificado para LedB6
+      delay(delayInputs);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      break;
+
+    case 't':
+    case 'T':
+      Serial.println("T reconhecido");
+      digitalWrite(LedA5, HIGH); // Modificado para LedA5
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB6, HIGH); // Modificado para LedB6
+      digitalWrite(LedB5, HIGH); // Modificado para LedB5
+      delay(delayInputs);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      break;
+
+    case 'u':
+    case 'U':
+      Serial.println("U reconhecido");
+      digitalWrite(LedA6, HIGH); // Modificado para LedA6
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+
+    case 'v':
+    case 'V':
+      Serial.println("V reconhecido");
+      digitalWrite(LedA6, HIGH); // Modificado para LedA6
+      digitalWrite(LedA5, HIGH); // Modificado para LedA5
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+
+    case 'w':
+    case 'W':
+      Serial.println("W reconhecido");
+      digitalWrite(LedA5, HIGH); // Modificado para LedA5
+      digitalWrite(LedB6, HIGH); // Modificado para LedB6
+      digitalWrite(LedB5, HIGH); // Modificado para LedB5
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA5, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+
+    case 'x':
+    case 'X':
+      Serial.println("X reconhecido");
+      digitalWrite(LedA6, HIGH); // Modificado para LedA6
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB6, HIGH); // Modificado para LedB6
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+
+    case 'y':
+    case 'Y':
+      Serial.println("Y reconhecido");
+      digitalWrite(LedA6, HIGH); // Modificado para LedA6
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB6, HIGH); // Modificado para LedB6
+      digitalWrite(LedB5, HIGH); // Modificado para LedB5
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB6, LOW);
+      digitalWrite(LedB5, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+
+    case 'z':
+    case 'Z':
+      Serial.println("Z reconhecido");
+      digitalWrite(LedA6, HIGH); // Modificado para LedA6
+      digitalWrite(LedA4, HIGH); // Modificado para LedA4
+      digitalWrite(LedB5, HIGH); // Modificado para LedB5
+      digitalWrite(LedB4, HIGH); // Modificado para LedB4
+      delay(delayInputs);
+      digitalWrite(LedA6, LOW);
+      digitalWrite(LedA4, LOW);
+      digitalWrite(LedB5, LOW);
+      digitalWrite(LedB4, LOW);
+      break;
+    
+    case ' ':
+      Serial.println("Espaço reconhecido");
+      delay(delayInputs);
+      break;
+
+    default:
+      Serial.println("Letra irreconhecida.");
+  }
+}
+
+
+
+void identificarLetra(char letra) { // Lista de letras e gatilhos de eventos
+  switch (letra) {
+    // Maiúsculo e minusculo inclusos no mesmo case
+    case 'a':
+    case 'A':
+      Serial.println("A reconhecido");
+      digitalWrite(LedA1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA1, LOW);
+      break;
+    
+    case 'b':
+    case 'B':
+      Serial.println("B reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      break;
+    
+    case 'c':
+    case 'C':
+      Serial.println("C reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 'd':
+    case 'D':
+      Serial.println("D reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'e':
+    case 'E':
+      Serial.println("E reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'f':
+    case 'F':
+      Serial.println("F reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 'g':
+    case 'G':
+      Serial.println("G reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'h':
+    case 'H':
+      Serial.println("H reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'i':
+    case 'I':
+      Serial.println("I reconhecido");
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 'j':
+    case 'J':
+      Serial.println("J reconhecido");
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'k':
+    case 'K':
+      Serial.println("K reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      break;
+    
+    case 'l':
+    case 'L':
+      Serial.println("L reconhecido");
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA3, LOW);
+      break;
+    
+    case 'm':
+    case 'M':
+      Serial.println("M reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 'n':
+    case 'N':
+      Serial.println("N reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'o':
+    case 'O':
+      Serial.println("O reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'p':
+    case 'P':
+      Serial.println("P reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 'q':
+    case 'Q':
+      Serial.println("Q reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'r':
+    case 'R':
+      Serial.println("R reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 's':
+    case 'S':
+      Serial.println("S reconhecido");
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      break;
+    
+    case 't':
+    case 'T':
+      Serial.println("T reconhecido");
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      break;
+    
+    case 'u':
+    case 'U':
+      Serial.println("U reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case 'v':
+    case 'V':
+      Serial.println("V reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case 'w':
+    case 'W':
+      Serial.println("W reconhecido");
+      digitalWrite(LedA2, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA2, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case 'x':
+    case 'X':
+      Serial.println("X reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case 'y':
+    case 'Y':
+      Serial.println("Y reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB3, HIGH);
+      digitalWrite(LedB2, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB3, LOW);
+      digitalWrite(LedB2, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case 'z':
+    case 'Z':
+      Serial.println("Z reconhecido");
+      digitalWrite(LedA3, HIGH);
+      digitalWrite(LedA1, HIGH);
+      digitalWrite(LedB2, HIGH);
+      digitalWrite(LedB1, HIGH);
+      delay(delayInputs);
+      digitalWrite(LedA3, LOW);
+      digitalWrite(LedA1, LOW);
+      digitalWrite(LedB2, LOW);
+      digitalWrite(LedB1, LOW);
+      break;
+    
+    case ' ':
+      Serial.println("Espaço reconhecido");
+      delay(delayInputs);
+      break;
+    
+    default:
+      Serial.println("Letra irreconhecida.");
+  }
+}
