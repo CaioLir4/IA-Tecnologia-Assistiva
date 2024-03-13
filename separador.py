@@ -1,5 +1,3 @@
-
-
 def separar_letras(frase):
     lista_letras = []
 
@@ -105,7 +103,7 @@ def converter_para_braille(texto):
     return ''.join(texto_braille)
 
 if __name__ == "__main__":
-
+'''
     frase_ia = input("Digite uma frase: ")
 
     lista_separada = separar_letras(frase_ia)
@@ -116,3 +114,5 @@ if __name__ == "__main__":
 
     lista_separada = separar_letras(texto_braille)
     print("Lista de letras braille:",lista_separada)
+
+'''
