@@ -97,7 +97,9 @@ def processar_fala():
             '''pdf.drawString(50, y, f'Texto em Braille: {braille_text}')
             y -= 20
             pdf.save()'''
-            printResultado()
+
+            #Se descomentar abre as abas
+            '''printResultado()'''
             
 
             # Salva o relatório de texto
@@ -137,6 +139,7 @@ def processar_fala():
             maquina.say(text)
             maquina.runAndWait()
 
+            return text
         except sr.UnknownValueError:
             print("Não foi possível reconhecer a fala.")
         except sr.RequestError as e:
@@ -144,3 +147,4 @@ def processar_fala():
 
 if __name__ == "__main__":
     processar_fala()
+

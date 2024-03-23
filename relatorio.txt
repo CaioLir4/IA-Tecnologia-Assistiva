@@ -1,0 +1,13 @@
+Projeto de iniciação científica 
+Título: Inteligência Artificial:Conversão de audio em Braili. Contribuindo com Educação de Pessoas com Deficiência Visual 
+
+Curso: Ciência da Computação 
+Aluno: CAIO GOMES LIRA : 202202887064
+Professor: Paulo Tássio 
+=================================================================== 
+
+Texto reconhecido: 
+fazendo um teste de reconexão
+
+Texto em Braille: 
+⠝ ⠁ ⠝ ⠕ ⠓ ⠍ ⠟ ⠀ ⠏ ⠍ ⠀ ⠑ ⠕ ⠏ ⠑ ⠕ ⠀ ⠍ ⠕ ⠀ ⠓ ⠕ ⠉ ⠟ ⠓ ⠕ ⠙ ⠖ ⠟ 
