@@ -103,7 +103,7 @@ def processar_fala():
             
 
             # Salva o relatório de texto
-            with open('relatorio.txt', 'w', encoding='utf-8') as relatorio:
+            '''with open('relatorio.txt', 'w', encoding='utf-8') as relatorio:
                 relatorio.write('Projeto de iniciação científica \n')
                 relatorio.write('Título: Inteligência Artificial:Conversão de audio em Braili. Contribuindo com Educação de Pessoas com Deficiência Visual \n\n')
                 relatorio.write('Curso: Ciência da Computação \n')
@@ -134,7 +134,7 @@ def processar_fala():
                 relatorio.write(f'<h3>Texto reconecido: {text}</h3>')
                 relatorio.write(f'<h3>Texto em Braille: {braille_text}</h3>')
                 relatorio.write('</body>\n')
-                relatorio.write('</html>\n')
+                relatorio.write('</html>\n')'''
     
             maquina.say(text)
             maquina.runAndWait()

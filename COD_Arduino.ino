@@ -1,15 +1,15 @@
-const int botaoPin = 2; // Qual o pino
-int LedA1 = 13; // Porta dos LEDs de cima
+const int botaoPin = 2;
+int LedA1 = 13;
 int LedA2 = 12;
 int LedA3 = 11;
-int LedB1 = 10; // Porta dos LEDs de baixo
+int LedB1 = 10;
 int LedB2 = 9;
 int LedB3 = 8;
 
 int delayInputs = 1000;
 void setup() {
   Serial.begin(9600);
-  // GPT -> "Configura o pino do botão como entrada com pull-up interno"
+
   pinMode(LedA1, OUTPUT);
   pinMode(LedA2, OUTPUT);
   pinMode(LedA3, OUTPUT);
@@ -19,24 +19,24 @@ void setup() {
 }
 
 void loop() {
-   // Ver se o botão ta pressionado pra ler e identificar a letra
+
     char letra = lerLetra();
     identificarLetra(letra);
-    delay(800); // Determina o quão rápido ocorre a identificação
+    delay(600);
 
 }
 
 char lerLetra() {
-  Serial.println("Digite uma letra: ");
-  while (!Serial.available()); // GPT -> "Aguarda até que algum dado esteja disponível na porta serial"
-  return Serial.read(); // Manda pro identificarLetra
+  while (!Serial.available());
+  return Serial.read();
 }
 
-void identificarLetra(char letra) { // Lista de letras e gatilhos de eventos
+void identificarLetra(char letra) {
   switch (letra) {
 
     case 'a':
     case 'A':
+
       Serial.println("A reconhecido");
       digitalWrite(LedA3, HIGH);
       delay(delayInputs);
@@ -77,6 +77,7 @@ void identificarLetra(char letra) { // Lista de letras e gatilhos de eventos
 
     case 'e':
     case 'E':
+    case 0xC3:
       Serial.println("E reconhecido");
       digitalWrite(LedA3, HIGH);
       digitalWrite(LedB2, HIGH);
@@ -125,6 +126,7 @@ void identificarLetra(char letra) { // Lista de letras e gatilhos de eventos
 
     case 'i':
     case 'I':
+    case 161:
       Serial.println("I reconhecido");
       digitalWrite(LedA2, HIGH);
       digitalWrite(LedB3, HIGH);
@@ -358,6 +360,66 @@ void identificarLetra(char letra) { // Lista de letras e gatilhos de eventos
       digitalWrite(LedB2, LOW);
       digitalWrite(LedB1, LOW);
       break;
+
+    case ' ':
+      Serial.println("Espaço reconhecido");
+      break;
+
+     // Casos de números:
+    case '0':
+        Serial.println("0 reconhecido");
+        // Lógica para o número 0
+        break;
+    case '1':
+        Serial.println("1 reconhecido");
+        // Lógica para o número 1
+        break;
+    case '2':
+        Serial.println("2 reconhecido");
+        // Lógica para o número 2
+        break;
+    case '3':
+        Serial.println("3 reconhecido");
+        // Lógica para o número 3
+        break;
+    case '4':
+        Serial.println("4 reconhecido");
+        // Lógica para o número 4
+        break;
+    case '5':
+        Serial.println("5 reconhecido");
+        // Lógica para o número 5
+        break;
+    case '6':
+        Serial.println("6 reconhecido");
+        // Lógica para o número 6
+        break;
+    case '7':
+        Serial.println("7 reconhecido");
+        // Lógica para o número 7
+        break;
+    case '8':
+        Serial.println("8 reconhecido");
+        // Lógica para o número 8
+        break;
+    case '9':
+        Serial.println("9 reconhecido");
+        // Lógica para o número 9
+        break;
+
+     // Operadores matemáticos:
+    case '+':
+        Serial.println("Operador '+' reconhecido");
+        break;
+    case '-':
+        Serial.println("Operador '-' reconhecido");
+        break;
+    case '*':
+        Serial.println("Operador '*' reconhecido");
+        break;
+    case '/':
+        Serial.println("Operador '/' reconhecido");
+        break;
 
     default:
       Serial.println("Letra irreconhecida.");
